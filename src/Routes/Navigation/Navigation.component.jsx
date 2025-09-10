@@ -7,16 +7,16 @@ const NavigationBar = () => {
   return (
     <Fragment>
       <div className="navigation">
-        <Link to="/" className="logo-container">
+        <Link to="/crown-clothing" className="logo-container">
           <div>
-            <img src="./images/crown.svg" alt="logo" />
+           <img src={`${process.env.PUBLIC_URL}/images/crown.svg`} alt="logo" />
           </div>
         </Link>
         <div className="nav-links-container">
-          <Link to="/shop" className="nav-link">
+          <Link to="shop" className="nav-link">
             SHOP
           </Link>
-          <Link to="/sign-in" className="nav-link">
+          <Link to="sign-in" className="nav-link">
             SIGN IN
           </Link>
         </div>

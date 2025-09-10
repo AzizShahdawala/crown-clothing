@@ -15,10 +15,10 @@ const Shop = () => {
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<NavigationBar />}>
+      <Route path="/crown-clothing" element={<NavigationBar />}>
         <Route index element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="sign-in" element={<SignIn />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

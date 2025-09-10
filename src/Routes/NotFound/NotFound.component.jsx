@@ -9,7 +9,7 @@ const NotFoundPage = () => {
         <p className="not-found-message">
           The page you are looking for might have been moved or deleted. Please check the URL or return to the homepage.
         </p>
-        <Link to="/" className="not-found-btn">
+        <Link to="/crown-clothing" className="not-found-btn">
           Back to Home
         </Link>
       </div>
