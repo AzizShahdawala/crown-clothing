@@ -7,6 +7,7 @@ import {
 import FormInput from "../form-input/form-input.component";
 
 import './sign-up-form.style.scss';
+import Button from "../button/button.component";
 
 const SignUpForm = () => {
   const defaultFormFields = {
@@ -101,7 +102,7 @@ const SignUpForm = () => {
           minLength={6}
           required
         />
-        <button type="submit">Sign up</button>
+        <Button type="submit" children="Sign up"></Button>
       </form>
     </div>
   );
