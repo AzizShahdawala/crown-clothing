@@ -11,6 +11,8 @@ import {
 
 import "./sign-in-form.style.scss";
 
+import { showSuccess, showError } from "../../utils/toast/toast.util";
+
 const SignInForm = () => {
   const defaultFormFields = {
     email: "",
@@ -48,14 +50,14 @@ const SignInForm = () => {
         password
       );
       console.log(response);
-
+      showSuccess("Signed in successfully!");
       resetFormFields();
     } catch (e) {
       console.log(e);
       if (e.code === "auth/invalid-credential") {
-        alert("Incorrect Email or Password entered");
+        showError("Incorrect Email or Password entered");
       } else {
-        alert(e.code);
+        showError(e.code);
       }
     }
   };
@@ -84,7 +86,11 @@ const SignInForm = () => {
         />
         <div className="buttons-container">
           <Button type="submit">Sign in</Button>
-          <Button type='button' buttonType="google" onClick={signInWithGooglePopup}>
+          <Button
+            type="button"
+            buttonType="google"
+            onClick={signInWithGooglePopup}
+          >
             Google Sign In
           </Button>
         </div>
