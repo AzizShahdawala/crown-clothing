@@ -29,9 +29,7 @@ const Home = () => {
     },
   ];
 
-  return (
-    <DirectoryComponent categories={categories}/>
-  );
+  return <DirectoryComponent categories={categories} />;
 };
 
 export default Home;

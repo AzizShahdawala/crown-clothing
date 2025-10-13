@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -8,6 +8,8 @@ import FormInput from "../form-input/form-input.component";
 
 import './sign-up-form.style.scss';
 import Button from "../button/button.component";
+
+import { showSuccess, showError } from "../../utils/toast/toast.util";
 
 const SignUpForm = () => {
   const defaultFormFields = {
@@ -21,7 +23,6 @@ const SignUpForm = () => {
 
   const { displayName, email, password, confirmPassword } = formFields;
 
-  console.log(formFields);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -46,18 +47,18 @@ const SignUpForm = () => {
         email,
         password
       );
-      console.log(response);
       const { user } = response;
-      const userResponse = await createUserDocumentFromAuth(user, {
+      await createUserDocumentFromAuth(user, {
         displayName: displayName,
       });
-      console.log(userResponse);
+      showSuccess("Signed up successfully!");
       resetFormFields();
     } catch (e) {
       if (e.code === "auth/email-already-in-use") {
-        alert("Cannot create user, email already in use!");
+        showError("Cannot create user, email already in use!");
         return;
       } else {
+        showError(e.code);
         console.log("User creation failed: ", e);
       }
     }
