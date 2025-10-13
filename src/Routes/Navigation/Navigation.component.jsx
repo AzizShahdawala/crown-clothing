@@ -5,17 +5,19 @@ import "./navigation.style.scss";
 import { signOutWithAuth } from "../../utils/firebase/firebase.util";
 import { showSuccess } from "../../utils/toast/toast.util";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
-
+import { UserContext } from "../../contexts/user-context/user.context";
+import CartIcon from "../../components/cart-icon/cart-icon.component";
+import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component";
+import { CartContext } from "../../contexts/cart-context/cart-context";
 
 const NavigationBar = () => {
-
-  const {currentUser} = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
 
   const signOutHandler = async () => {
     await signOutWithAuth();
-    showSuccess('Signed out successfully!');
-  }
+    showSuccess("Signed out successfully!");
+  };
 
   return (
     <Fragment>
@@ -33,13 +35,17 @@ const NavigationBar = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutHandler}>SIGN OUT</span>
+            <span className="nav-link" onClick={signOutHandler}>
+              SIGN OUT
+            </span>
           ) : (
             <Link to="auth" className="nav-link">
               SIGN IN
             </Link>
           )}
+          <CartIcon />
         </div>
+        {isCartOpen && <CartDropDown />}
       </div>
       <Outlet />
     </Fragment>

@@ -2,16 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Routes/Home/Home.component";
 import NavigationBar from "./Routes/Navigation/Navigation.component";
 import NotFoundPage from "./Routes/NotFound/NotFound.component";
-import Auth from "./Routes/authentication/authentication.component";
 import { ToastContainer } from "react-toastify";
-
-const Shop = () => {
-  return (
-    <div>
-      <h1>This is a shop component</h1>
-    </div>
-  );
-};
+import Auth from "./Routes/authentication/authentication.component";
+import Shop from "./Routes/shop/shop.component";
 
 const App = () => {
   return (
