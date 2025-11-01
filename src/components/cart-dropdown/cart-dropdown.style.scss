@@ -1,29 +1,47 @@
 .cart-dropdown-container {
   position: absolute;
-  width: 240px;
-  height: 340px;
+  width: 260px;
+  height: 400px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  border: 1px solid black;
-  background-color: white;
+  padding: 16px;
+  border: 1px solid #000;
+  background-color: #fff;
   top: 90px;
   right: 40px;
   z-index: 5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
 
   .empty-message {
-    font-size: 18px;
-    margin: 50px auto;
+    font-size: 16px;
+    margin: auto;
+    text-align: center;
+    color: #666;
   }
 
   .cart-items {
-    height: 240px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    gap: 10px;
+    overflow-y: auto;
+    margin-bottom: 12px;
   }
 
   button {
-    margin-top: auto;
+    align-self: center;
+    width: 90%;
+    padding: 3px 0;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
   }
 }
