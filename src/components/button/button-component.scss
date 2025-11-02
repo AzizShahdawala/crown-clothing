@@ -1,20 +1,23 @@
+@import "../../styles/variables";
+
 .button-container {
   min-width: 165px;
   width: auto;
   height: 50px;
   letter-spacing: 0.5px;
   line-height: 50px;
-  padding: 0 35px 0 35px;
+  padding: 0 35px;
   font-size: 15px;
   background-color: black;
   color: white;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed';
+  font-family: "Open Sans Condensed";
   font-weight: bolder;
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  z-index: 100;
 
   &:hover {
     background-color: white;
@@ -42,5 +45,17 @@
       color: white;
       border: none;
     }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 13px;
+    padding: 0 20px;
   }
 }

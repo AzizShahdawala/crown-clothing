@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 $sub-color: grey;
 $main-color: black;
 
@@ -20,7 +22,6 @@ $main-color: black;
     display: block;
     width: 100%;
     border: none;
-    border-radius: 0;
     border-bottom: 1px solid $sub-color;
     margin: 25px 0;
 
@@ -33,7 +34,7 @@ $main-color: black;
     }
   }
 
-  input[type='password'] {
+  input[type="password"] {
     letter-spacing: 0.3em;
   }
 
@@ -49,6 +50,12 @@ $main-color: black;
 
     &.shrink {
       @include shrinkLabel();
+    }
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    .form-input {
+      font-size: 16px;
     }
   }
 }

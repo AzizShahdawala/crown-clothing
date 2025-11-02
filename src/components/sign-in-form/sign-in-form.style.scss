@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .sign-in-container {
   display: flex;
   flex-direction: column;
@@ -14,15 +16,12 @@
     gap: 10px;
 
     button {
-      flex: 1; // make buttons responsive
+      flex: 1;
       min-width: 120px;
     }
   }
 
-  @media (max-width: 480px) {
-    width: 100%;
-    max-width: 100%;
-
+  @media (max-width: $breakpoint-sm) {
     .buttons-container {
       flex-direction: column;
       gap: 0.5rem;

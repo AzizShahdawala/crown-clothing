@@ -1,11 +1,15 @@
 .authentication-container {
   display: flex;
   justify-content: space-between;
-  gap: 2rem; // spacing between sign-in and sign-up
+  gap: 2rem;
   margin: 20px auto;
   max-width: 900px;
   padding: 1rem;
-  flex-wrap: wrap; // allows stacking on smaller screens
+  flex-wrap: wrap;
+
+  @media (max-width: 1024px) {
+    max-width: 95%;
+  }
 
   @media (max-width: 900px) {
     justify-content: center;
@@ -16,5 +20,11 @@
     align-items: center;
     max-width: 100%;
     gap: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 480px) {
+    margin: 10px auto;
+    gap: 1rem;
   }
 }

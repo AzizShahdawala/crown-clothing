@@ -1,7 +1,18 @@
+@import "../../styles/variables";
+
 .categories-container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
+  gap: 15px;
 
+  @media (max-width: $breakpoint-md) {
+    justify-content: center;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
