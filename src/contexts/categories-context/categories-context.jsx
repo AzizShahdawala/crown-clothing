@@ -1,30 +1,32 @@
-import { createContext, useState, useEffect } from "react";
-
+import { createContext, useState, useEffect, useContext } from "react";
 import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.util";
+import { LoaderContext } from "../loader-context/loader-context";
 
-export const CategoriesContext = createContext({
-  categoriesMap: {},
-});
+export const CategoriesContext = createContext({});
 
 export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
 
-  useEffect(() =>{
+  const { showLoader, hideLoader } = useContext(LoaderContext);
 
-    const getCategoryMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
-      setCategoriesMap(categoryMap);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      showLoader(); 
+      try {
+        const categoryMap = await getCategoriesAndDocuments();
+        setCategoriesMap(categoryMap);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      } finally {
+        hideLoader(); 
+      }
     };
 
-    getCategoryMap();
-
-  },[]);
-
-
-  const value = categoriesMap;
+    fetchCategories();
+  }, []);
 
   return (
-    <CategoriesContext.Provider value={value}>
+    <CategoriesContext.Provider value={categoriesMap}>
       {children}
     </CategoriesContext.Provider>
   );

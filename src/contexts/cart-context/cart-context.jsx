@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { showInfo } from "../../utils/toast/toast.util";
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -84,6 +85,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCartItems([]);
+    showInfo("Cart has been cleared..");
   };
 
   const deleteCheckOutItem = (checkoutItem) => {

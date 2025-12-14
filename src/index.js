@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
@@ -7,18 +6,24 @@ import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./contexts/user-context/user.context";
 import { CategoriesProvider } from "./contexts/categories-context/categories-context";
 import { CartProvider } from "./contexts/cart-context/cart-context";
+import { LoaderProvider } from "./contexts/loader-context/loader-context";
+import  GlobalLoader from "./contexts/loader-context/loader.component";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <UserProvider>
-      <CategoriesProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </CategoriesProvider>
-    </UserProvider>
-  </BrowserRouter>
+  <LoaderProvider>
+    <BrowserRouter>
+      <UserProvider>
+        <CategoriesProvider>
+          <CartProvider>
+            <GlobalLoader />
+            <App />
+            <GlobalLoader />
+          </CartProvider>
+        </CategoriesProvider>
+      </UserProvider>
+    </BrowserRouter>
+  </LoaderProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
