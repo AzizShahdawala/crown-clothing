@@ -3,20 +3,18 @@ import { Link } from "react-router-dom";
 
 import "./category-preview.style.scss";
 
-const CategoryPreview = ({ title, products }) => {
+const CategoryPreview = ({ title, products = [] }) => {
   return (
     <div className="category-preview-container">
       <h2>
         <Link to={title} className="title">
-          <span className="title">{title.toUpperCase()}</span>
+          {title.toUpperCase()}
         </Link>
       </h2>
       <div className="preview">
-        {products
-          .filter((_item, index) => index < 4)
-          .map((product) => {
-            return <ProductCard key={product.id} product={product} />;
-          })}
+        {products.slice(0, 4).map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );

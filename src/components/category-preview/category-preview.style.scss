@@ -7,11 +7,36 @@
     font-size: 28px;
     margin-bottom: 25px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
   }
 
   .preview {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
+  }
+}
+
+/* Tablet / iPad */
+@media screen and (max-width: 1023px) {
+  .category-preview-container {
+    .preview {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .category-preview-container {
+    .title {
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .preview {
+      grid-template-columns: 1fr;
+    }
   }
 }
