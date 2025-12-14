@@ -1,59 +1,73 @@
 .checkout-container {
-  width: 55%;
+  width: 60%;
   min-height: 90vh;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 50px auto 0;
-
-  .checkout-header {
-    width: 100%;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid darkgrey;
-    text-align: center;
-
-    .header-block {
-      text-transform: capitalize;
-      width: 23%;
-      font-size: 1rem;
-
-      &:last-child {
-        width: 8%;
-      }
-
-      @media (max-width: 600px) {
-        width: 20%;
-        font-size: 0.9rem;
-      }
-    }
-  }
-
-  .total {
-    margin-top: 30px;
-    margin-left: auto;
-    font-size: 36px;
-
-    @media (max-width: 768px) {
-      font-size: 28px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 22px;
-    }
-  }
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
   @media (max-width: 1024px) {
-    width: 75%;
+    width: 80%;
   }
 
   @media (max-width: 768px) {
-    width: 90%;
+    width: 95%;
+    padding: 20px;
   }
+}
 
-  @media (max-width: 480px) {
-    width: 100%;
-    padding: 0 10px;
+.checkout-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ================= HEADER ================= */
+
+.checkout-header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1.2fr 1fr 1fr 0.5fr;
+  padding: 15px 0;
+  border-bottom: 2px solid #f0f0f0;
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+
+  @media (max-width: 767px) {
+    display: none;
   }
+}
+
+/* ================= ITEMS ================= */
+
+.checkout-items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* ================= FOOTER ================= */
+
+.checkout-footer {
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 2px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.total {
+  font-size: 30px;
+  font-weight: 700;
 }

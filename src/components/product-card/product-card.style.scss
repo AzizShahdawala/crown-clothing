@@ -4,32 +4,32 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 350px;
   align-items: center;
   position: relative;
+  margin-bottom: 40px; // ✅ spacing between rows
 
   img {
     width: 100%;
-    height: 95%;
+    aspect-ratio: 3 / 4; // ✅ consistent image height
     object-fit: cover;
-    margin-bottom: 5px;
+    border-radius: 4px;
   }
 
   button {
     width: 80%;
-    opacity: 0.7;
+    opacity: 0;
     position: absolute;
-    top: 255px;
-    display: none;
+    top: 65%;
+    transition: opacity 0.3s ease;
   }
 
   &:hover {
     img {
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
     button {
-      opacity: 0.85;
+      opacity: 0.9;
       display: flex;
     }
   }
@@ -38,31 +38,25 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 16px;
+    margin-top: 12px; // ✅ gap below image
 
     .name {
-      width: 90%;
-      margin-bottom: 15px;
+      width: 85%;
+      line-height: 1.4;
     }
 
     .price {
-      width: 10%;
+      width: 15%;
+      text-align: right;
+      font-weight: 600;
     }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    height: 320px;
   }
 
   @media (max-width: $breakpoint-sm) {
-    height: 280px;
     button {
-      top: 210px;
       width: 90%;
+      top: 60%;
     }
-  }
-
-  @media (max-width: $breakpoint-xs) {
-    font-size: 14px;
   }
 }

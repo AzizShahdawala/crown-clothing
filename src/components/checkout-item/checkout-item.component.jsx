@@ -9,33 +9,33 @@ const CheckoutItem = ({ checkoutItem }) => {
 
   const { name, imageUrl, price, quantity } = checkoutItem;
 
-  const removeCheckoutItem = (checkoutItem) => {
-    deleteCheckOutItem(checkoutItem);
-  };
-
   return (
-    <div className="checkout-item-container">
+    <div className="checkout-item">
       <div className="image-container">
-        <img src={imageUrl} alt={`${name}`} />
+        <img src={imageUrl} alt={name} />
       </div>
+
       <span className="name">{name}</span>
+
       <span className="quantity">
-        <div className="arrow" onClick={() => removeItemFromCart(checkoutItem)}>
+        <span className="arrow" onClick={() => removeItemFromCart(checkoutItem)}>
           &#10094;
-        </div>
-        <span className="value"> {quantity}</span>
-        <div className="arrow" onClick={() => addItemToCart(checkoutItem)}>
+        </span>
+        <span className="value">{quantity}</span>
+        <span className="arrow" onClick={() => addItemToCart(checkoutItem)}>
           &#10095;
-        </div>
+        </span>
       </span>
-      <span className="price">&#8377;{price}</span>
-      <span className="price">&#8377;{price * quantity}</span>
-      <div
+
+      <span className="price">₹{price}</span>
+      <span className="total-price">₹{price * quantity}</span>
+
+      <span
         className="remove-button"
-        onClick={() => removeCheckoutItem(checkoutItem)}
+        onClick={() => deleteCheckOutItem(checkoutItem)}
       >
         &#10005;
-      </div>
+      </span>
     </div>
   );
 };

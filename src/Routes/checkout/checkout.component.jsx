@@ -10,38 +10,30 @@ const Checkout = () => {
 
   return (
     <div className="checkout-container">
+      <h2 className="checkout-title">Checkout</h2>
+
       <div className="checkout-header">
-        <div className="header-block">
-          <span>Product</span>
-        </div>
-        <div className="header-block">
-          <span>Description</span>
-        </div>
-        <div className="header-block">
-          <span>Quantity</span>
-        </div>
-        <div className="header-block">
-          <span>Price</span>
-        </div>
-        <div className="header-block">
-          <span>Total Price</span>
-        </div>
-        <div className="header-block">
-          <span>Remove</span>
-        </div>
+        <span>Product</span>
+        <span>Description</span>
+        <span>Quantity</span>
+        <span>Price</span>
+        <span>Total</span>
+        <span>Remove</span>
       </div>
 
-      {cartItems.map((cartItem) => {
-        return <CheckoutItem checkoutItem={cartItem} key={cartItem.id} />;
-      })}
+      <div className="checkout-items">
+        {cartItems.map((cartItem) => (
+          <CheckoutItem checkoutItem={cartItem} key={cartItem.id} />
+        ))}
+      </div>
 
       {cartItems.length > 0 && (
-        <span className="total">Total: &#8377;{totalCartAmount}</span>
-      )}
-      {cartItems.length > 0 && (
-        <Button buttonType="inverted" onClick={clearCart}>
-          Clear Checkout
-        </Button>
+        <div className="checkout-footer">
+          <span className="total">Total: ₹{totalCartAmount}</span>
+          <Button buttonType="inverted" onClick={clearCart}>
+            Clear Cart
+          </Button>
+        </div>
       )}
     </div>
   );
